@@ -18,8 +18,12 @@ function Data() {
 
     useEffect(() => {
         async function getData() {
+            const API_BASE = 'https://api.marketdata.app/v1'
+            const DAYS = 5
+            const SYMBOL = 'AAPL'
+
             try {
-                let response = (await axios.get('https://api.marketdata.app/v1/stocks/candles/D/AAPL?countback=5&to=yesterday')).data
+                const response = (await axios.get(`${API_BASE}/stocks/candles/D/${SYMBOL}?countback=${DAYS}&to=yesterday`)).data
 
                 console.log(response);
                 setData(response);
