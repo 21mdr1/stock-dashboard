@@ -1,0 +1,30 @@
+@use '../../styles/partials/variables' as *;
+
+.calc {
+    margin: 2rem 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    &__row {
+        display: flex;
+        padding: 0.4rem 0;
+        justify-content: space-between;
+        column-gap: 2rem;
+    }
+  
+    &__action {
+        color: $white;
+        font-size: $big-letters;
+        padding: 0.55rem 3rem;
+        border-radius: 2.5rem;
+
+        &--buy {
+            background-color: $buy;
+        }
+
+        &--sell {
+            background-color: $sell;
+        }
+    }
+}

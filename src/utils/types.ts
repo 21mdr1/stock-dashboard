@@ -1,4 +1,4 @@
-interface iData {
+interface iDayData {
     t: Array<number>;
     o: Array<number>;
     c: Array<number>;
@@ -8,4 +8,15 @@ interface iData {
     s: string;
 }
 
-export type { iData };
+interface iMomentData {
+    c: number,
+    d: number,
+    dp: number,
+    h: number,
+    l: number,
+    o: number,
+    pc: number,
+    t: number
+}
+
+export type { iDayData, iMomentData };

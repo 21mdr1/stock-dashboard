@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { dateToString, round } from '../../utils/conversions';
-import { iData } from '../../utils/types';
+import { iDayData } from '../../utils/types';
 import axios from 'axios';
 import './Table.scss';
 
-function Table() {
-    const [ data, setData ] = useState<iData>();
+function Table( { calculateAverage }: {
+    calculateAverage: (num: number[]) => void;
+}) {
+    const [ data, setData ] = useState<iDayData>();
 
     useEffect(() => {
         async function getData() {
@@ -18,6 +20,7 @@ function Table() {
 
                 console.log(response);
                 setData(response);
+                calculateAverage(response.c);
             } catch(error) {
                 console.log(error);
             }
