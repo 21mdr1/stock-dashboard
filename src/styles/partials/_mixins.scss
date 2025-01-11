@@ -1,0 +1,25 @@
+@use './variables' as *;
+
+@mixin tablet {
+    @media (min-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: $desktop) {
+        @content;
+    }
+}
+
+@mixin monitor {
+    @media (min-width: $monitor) {
+        @content;
+    }
+}
+
+@mixin dark-mode {
+    @media (prefers-color-scheme: dark) {
+        @content;
+    }
+}
