@@ -3,7 +3,10 @@ import { round } from '../../utils/conversions';
 import { iMomentData } from '../../utils/types';
 import axios from 'axios';
 import './Calculation.scss';
+const TOKEN = import.meta.env.REACT_APP_TROKEN;
 
+const API_BASE = 'https://finnhub.io/api/v1'
+const SYMBOL = 'AAPL'
 
 function Calculation({ average }: {
     average: number;
@@ -12,10 +15,6 @@ function Calculation({ average }: {
 
     useEffect(() => {
         async function getData() {
-            const API_BASE = 'https://finnhub.io/api/v1'
-            const TOKEN = 'ctq1qjpr01qmn6h39l3gctq1qjpr01qmn6h39l40'
-            const SYMBOL = 'AAPL'
-
             try {
                 const response = (await axios.get(`${API_BASE}/quote?symbol=${SYMBOL}&token=${TOKEN}`)).data
                 

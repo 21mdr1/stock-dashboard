@@ -4,6 +4,10 @@ import { iDayData } from '../../utils/types';
 import axios from 'axios';
 import './Table.scss';
 
+const API_BASE = 'https://api.marketdata.app/v1'
+const DAYS = 5
+const SYMBOL = 'AAPL'
+
 function Table( { calculateAverage }: {
     calculateAverage: (num: number[]) => void;
 }) {
@@ -11,10 +15,6 @@ function Table( { calculateAverage }: {
 
     useEffect(() => {
         async function getData() {
-            const API_BASE = 'https://api.marketdata.app/v1'
-            const DAYS = 5
-            const SYMBOL = 'AAPL'
-
             try {
                 const response = (await axios.get(`${API_BASE}/stocks/candles/D/${SYMBOL}?countback=${DAYS}&to=today`)).data
 
