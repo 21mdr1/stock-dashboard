@@ -3,12 +3,12 @@ import { round } from '../../utils/conversions';
 import { iMomentData } from '../../utils/types';
 import axios from 'axios';
 import './Calculation.scss';
-const TOKEN = import.meta.env.REACT_APP_TROKEN;
+const TOKEN = import.meta.env.VITE_FINHUB_TOKEN;
 
 const API_BASE = 'https://finnhub.io/api/v1'
-const SYMBOL = 'AAPL'
 
-function Calculation({ average }: {
+function Calculation({ SYMBOL, average }: {
+    SYMBOL: string;
     average: number;
 }) {
     const [ data, setData ] = useState<iMomentData>();

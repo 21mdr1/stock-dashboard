@@ -6,9 +6,9 @@ import './Table.scss';
 
 const API_BASE = 'https://api.marketdata.app/v1'
 const DAYS = 5
-const SYMBOL = 'AAPL'
 
-function Table( { calculateAverage }: {
+function Table( { SYMBOL, calculateAverage }: {
+    SYMBOL: string;
     calculateAverage: (num: number[]) => void;
 }) {
     const [ data, setData ] = useState<iDayData>();
