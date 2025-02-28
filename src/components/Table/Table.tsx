@@ -16,11 +16,12 @@ function Table( { calculateAverage }: {
             const SYMBOL = 'AAPL'
 
             try {
-                const response = (await axios.get(`${API_BASE}/stocks/candles/D/${SYMBOL}?countback=${DAYS}&to=yesterday`)).data
+                const response = (await axios.get(`${API_BASE}/stocks/candles/D/${SYMBOL}?countback=${DAYS}&to=today`)).data
 
                 console.log(response);
                 setData(response);
                 calculateAverage(response.c);
+                
             } catch(error) {
                 console.log(error);
             }
@@ -50,8 +51,8 @@ function Table( { calculateAverage }: {
                         <td className="table__cell">{dateToString(data.t[day])}</td>
                         <td className="table__cell">{round(Number(data.o[day]))}</td>
                         <td className="table__cell">{round(Number(data.c[day]))}</td>
-                        <td className="table__cell">{round(Number(data.h[day]))}</td>
                         <td className="table__cell">{round(Number(data.l[day]))}</td>
+                        <td className="table__cell">{round(Number(data.h[day]))}</td>
                         <td className="table__cell">{data.v[day]}</td>
                     </tr>
                 ))}
